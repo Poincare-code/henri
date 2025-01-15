@@ -1,2 +1,2 @@
-# Henri
-Probabilistic Numerical Relativity Simulation Toolkit.
+# henri
+Probabilistic Numerical Relativity simulation toolkit (pilot study).
