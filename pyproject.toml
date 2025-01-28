@@ -1,0 +1,56 @@
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "henri"
+version = "0.0.0"
+description = "Probabilistic Numerical Relativity simulation toolkit."
+readme = "README.md"
+authors = [{ name = "Frederik De Ceuster", email = "frederik.deceuster@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Astronomy",
+]
+keywords = ["Probabilistic Numerics", "Numerical Relativity"]
+dependencies = [
+    "matplotlib",
+    "ipywidgets",
+    "astropy",
+    "torch>=2.0.0",
+    "numpy",
+    "numba",
+    "tqdm",
+    "h5py",
+    "mileva",
+]
+requires-python = ">=3.7"
+
+[project.optional-dependencies]
+dev = ["black", "bumpver", "pip-tools", "pytest"]
+
+[project.urls]
+Homepage = "https://github.com/Poincare-code/henri"
+
+[tool.bumpver]
+current_version = "0.0.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message  = "Bump version {old_version} -> {new_version}"
+commit          = true
+tag             = false
+push            = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
+"src/henri/__init__.py" = ["{version}"]
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
+pythonpath = [".", "src"]
+
+#[project.scripts]
+#realpython = "reader.__main__:main"
